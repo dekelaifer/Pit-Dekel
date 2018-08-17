@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Pit_Dekel</string>
+    <string name="cant_add_more_point">לא ניתן להוסיף עוד נקודות</string>
+    <string name="less_than_two">לא מספיק נקודות</string>
 </resources>

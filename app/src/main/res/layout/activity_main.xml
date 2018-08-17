@@ -49,14 +49,10 @@
             android:layout_marginLeft="@dimen/line_margin"
             android:layout_marginStart="@dimen/line_margin"
             android:layout_marginRight="@dimen/line_margin"
-            android:background="@android:color/darker_gray"
+            android:background="@color/colorPrimary"
             android:layout_width="1dp"
             android:layout_height="match_parent" />
 
-        <!--
-                must set backgroud
-                虽然视觉上没有效果，但是消除了拖曳区域局限的bug
-                -->
         <com.dekel.pit.view.DragViewGroup
             android:id="@+id/dragViewGroup"
             android:layout_width="match_parent"
@@ -65,24 +61,6 @@
             android:background="#00ffffff">
 
         </com.dekel.pit.view.DragViewGroup>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-        </LinearLayout>
-
     </LinearLayout>
 
 
