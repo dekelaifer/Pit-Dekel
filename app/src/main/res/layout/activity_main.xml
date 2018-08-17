@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginEnd="@dimen/dvg_margin"
+    android:layout_marginLeft="@dimen/dvg_margin"
+    android:layout_marginRight="@dimen/dvg_margin"
+    android:layout_marginStart="@dimen/dvg_margin"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivCircle"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@android:drawable/ic_media_play" />
+            <ImageView
+                android:id="@+id/ivAddCircle"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20sp"
+
+                android:visibility="invisible"
+                android:src="@drawable/circle" />
+
+            <ImageView
+                android:id="@+id/btnClear"
+                android:layout_width="50dp"
+                android:visibility="invisible"
+                android:layout_height="50dp"
+                android:layout_marginTop="20sp"
+                android:src="@android:drawable/ic_delete" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="@dimen/line_margin"
+            android:layout_marginStart="@dimen/line_margin"
+            android:layout_marginRight="@dimen/line_margin"
+            android:background="@android:color/darker_gray"
+            android:layout_width="1dp"
+            android:layout_height="match_parent" />
+
+        <!--
+                must set backgroud
+                虽然视觉上没有效果，但是消除了拖曳区域局限的bug
+                -->
+        <com.dekel.pit.view.DragViewGroup
+            android:id="@+id/dragViewGroup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#00ffffff">
+
+        </com.dekel.pit.view.DragViewGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
