@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 btnClear.setVisibility(View.VISIBLE);
                 ivAddCircle.setVisibility(View.VISIBLE);
                 for (int i = 0; i < 5; i++) {
-                    createView(view, R.drawable.point, i,true);
+                    createView(view, R.drawable.point, i+2,true);
                 }
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
             , true, false);
         } else {
         //one circle add
-            dragViewGroup.addDragView(imageView, dragViewGroup.getWidth() / 2, view.getTop(),  view.getRight(), view.getBottom() , true, false);
+            dragViewGroup.addDragView(imageView, (dragViewGroup.getWidth() / 2)-60, view.getTop(),  view.getRight(), view.getBottom() , true, false);
         }
     }
     //make Toast

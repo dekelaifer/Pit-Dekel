@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:layout_marginLeft="@dimen/dvg_margin"
             android:layout_marginStart="@dimen/dvg_margin"
             android:layout_marginRight="@dimen/dvg_margin"
             android:layout_marginEnd="@dimen/dvg_margin"
+            android:gravity="center"
             android:orientation="vertical">
 
             <ImageView
@@ -29,35 +24,45 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20sp"
+                android:layout_marginBottom="65dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/ivPlay"
                 android:visibility="invisible"
                 android:src="@drawable/point" />
             <ImageView
                 android:id="@+id/btnClear"
                 android:layout_width="45dp"
+                android:layout_centerHorizontal="true"
                 android:visibility="invisible"
                 android:layout_height="45dp"
-                android:layout_marginTop="20sp"
                 android:src="@android:drawable/ic_menu_delete" />
-        </LinearLayout>
+        </RelativeLayout>
+    <View
+        android:background="@color/colorPrimary"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="1dp"
+        android:layout_marginTop="@dimen/view_margin"
+        android:layout_marginBottom="@dimen/view_margin"
+        android:layout_height="match_parent" />
+    <View
+        android:background="@color/colorPrimary"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_marginRight="@dimen/view_margin"
+        android:layout_marginLeft="@dimen/view_margin"
+        android:layout_marginStart="@dimen/view_margin"
+        android:layout_height="1dp"
+        android:layout_marginEnd="@dimen/view_margin" />
 
-        <View
-            android:layout_marginTop="@dimen/line_margin"
-            android:layout_marginLeft="@dimen/line_margin"
-            android:layout_marginStart="@dimen/line_margin"
-            android:layout_marginRight="@dimen/line_margin"
-            android:background="@color/colorPrimary"
-            android:layout_marginBottom="@dimen/line_margin"
-            android:layout_width="1dp"
-            android:layout_height="match_parent" />
+    <com.dekel.pit.view.DragViewGroup
+        android:id="@+id/dragViewGroup"
+        android:layout_alignParentRight="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/soft_white">
+    </com.dekel.pit.view.DragViewGroup>
 
-        <com.dekel.pit.view.DragViewGroup
-            android:id="@+id/dragViewGroup"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/soft_white">
-        </com.dekel.pit.view.DragViewGroup>
-    </LinearLayout>
-
-
-</LinearLayout>
+</RelativeLayout>
