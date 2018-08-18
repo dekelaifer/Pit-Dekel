@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
             dashArrow = new DashArrow(context,
                     childAt1.getLeft() + childAt1.getWidth() / 2,
                     childAt1.getBottom() - statusBarHeight,
-                    childAt2.getLeft() + childAt1.getWidth() / 2, childAt2.getBottom() - statusBarHeight);
+                    childAt2.getLeft() + childAt2.getWidth() / 2, childAt2.getBottom() - statusBarHeight);
             dragViewGroup.addView(dashArrow);
             //save arrow in dashArrowArrayList
             dashArrowArrayList.add(dashArrow);
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
         imageView.setLayoutParams(p);
         //five circles at first
         if (start) {
-            dragViewGroup.addDragView(imageView, view.getLeft() + (view.getWidth() * num), view.getTop(), view.getRight(), view.getBottom()
+            dragViewGroup.addDragView(imageView, view.getLeft() + (view.getWidth() * num)+num*5, view.getTop(), view.getRight(), view.getBottom()
             , true, false);
         } else {
         //one circle add
