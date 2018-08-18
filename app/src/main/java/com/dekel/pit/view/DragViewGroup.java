@@ -23,9 +23,6 @@ public class DragViewGroup extends RelativeLayout implements MoveLayout.DeleteMo
 
     private static final String TAG = "DragViewGroup";
 
-    private int mSelfViewWidth = 0;
-    private int mSelfViewHeight = 0;
-
     private Context mContext;
 
     /**
@@ -38,11 +35,7 @@ public class DragViewGroup extends RelativeLayout implements MoveLayout.DeleteMo
     private int mMinHeight = 120;
     private int mMinWidth = 180;
 
-    private boolean mIsAddDeleteView = false;
     private ImageView deleteArea;
-
-    private int DELETE_AREA_WIDTH = 0;
-    private int DELETE_AREA_HEIGHT = 0;
 
 
     public DragViewGroup(Context context) {
@@ -68,13 +61,15 @@ public class DragViewGroup extends RelativeLayout implements MoveLayout.DeleteMo
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        mSelfViewWidth = getWidth();
-        mSelfViewHeight = getHeight();
+        int mSelfViewWidth = getWidth();
+        int mSelfViewHeight = getHeight();
 
         if (mMoveLayoutList != null) {
             int count = mMoveLayoutList.size();
             for (int a = 0; a < count; a++) {
                 mMoveLayoutList.get(a).setViewWidthHeight(mSelfViewWidth, mSelfViewHeight);
+                int DELETE_AREA_WIDTH = 0;
+                int DELETE_AREA_HEIGHT = 0;
                 mMoveLayoutList.get(a).setDeleteWidthHeight(DELETE_AREA_WIDTH, DELETE_AREA_HEIGHT);
             }
         }
@@ -148,6 +143,7 @@ public class DragViewGroup extends RelativeLayout implements MoveLayout.DeleteMo
         moveLayout.setOnDeleteMoveLayout(this);
         moveLayout.setIdentity(mLocalIdentity++);
 
+        boolean mIsAddDeleteView = false;
         if (!mIsAddDeleteView) {
             //add delete area
             deleteArea = new ImageView(mContext);

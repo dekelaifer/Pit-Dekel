@@ -1,5 +1,6 @@
 package com.dekel.pit.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -14,13 +15,13 @@ import com.dekel.pit.utils.PixTool;
  * Created by dekel laifer on 17-08-2018.
  */
 
+@SuppressLint("ViewConstructor")
 public class DashArrow extends View {
 
     private Context context;
 
     private float x1 = 0;
     private float y1 = 0;
-
     private float x2 = 0;
     private float y2 = 0;
     private Paint paint;
@@ -108,4 +109,3 @@ public class DashArrow extends View {
         isNeedBezier = needBezier;
     }
 }
-

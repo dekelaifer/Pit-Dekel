@@ -2,24 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <LinearLayout
         android:id="@+id/change_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
         <LinearLayout
             android:id="@+id/add_your_view_here"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <!-- add your self view here -->
         </LinearLayout>
     </LinearLayout>
-    <!--
-        the four ImageView blow must be the second of it's parent view(RelativeLayout), and be this order
-    -->
     <ImageView
         android:id="@+id/spotL"
         android:layout_width="8dp"
@@ -49,7 +43,6 @@
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/spot_corners_bg" />
-
     <ImageView
         android:id="@+id/spotB"
         android:layout_width="match_parent"

@@ -1,5 +1,6 @@
 package com.dekel.pit.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -27,8 +28,6 @@ public class MoveLayout extends RelativeLayout {
     private static final int LEFT_BOTTOM = 0x13;
     private static final int RIGHT_BOTTOM = 0x14;
     private static final int CENTER = 0x19;
-
-
 
     private int lastX;
     private int lastY;
@@ -105,6 +104,7 @@ public class MoveLayout extends RelativeLayout {
 
 
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         int action = event.getAction();
@@ -196,7 +196,6 @@ public class MoveLayout extends RelativeLayout {
 
         //do delete
         if(!isInDeleteArea && oriRight > mDeleteWidth && oriTop < mDeleteHeight) {//delete
-            Log.e(TAG, "center: oriRight"+oriRight+  "  mDeleteWidth"+mDeleteWidth  +"  oriTop"+ oriTop+ "  mDeleteHeightv"+ mDeleteHeight);
             if(mListener != null) {
                 mListener.onDeleteMoveLayout(identity);
                 mDeleteView.setVisibility(View.INVISIBLE);
@@ -257,7 +256,7 @@ public class MoveLayout extends RelativeLayout {
         int bottom = getBottom();
         int top = getTop();
 
-        if (mFixedSize == true) {
+        if (mFixedSize) {
             return CENTER;
         }
 
@@ -293,10 +292,8 @@ public class MoveLayout extends RelativeLayout {
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
 
-
         RelativeLayout rlt = (RelativeLayout) getChildAt(0);
         int count = rlt.getChildCount();
-
         for (int a = 0; a < count; a ++) {
             if(a == 1) {        //l
                 if(spotL)
@@ -322,9 +319,6 @@ public class MoveLayout extends RelativeLayout {
         }
 
     }
-
-
-
     public int getIdentity() {
         return identity;
     }
@@ -347,7 +341,4 @@ public class MoveLayout extends RelativeLayout {
     public void setOnDeleteMoveLayout(DeleteMoveLayout l) {
         mListener = l;
     }
-
-
-
 }

@@ -1,11 +1,13 @@
 package com.dekel.pit.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -18,7 +20,7 @@ import com.orhanobut.logger.Logger;
 
 @Deprecated
 
-public class DragView extends ImageView {
+public class DragView extends View {
     public DragView(Context context) {
         super(context);
     }
@@ -41,6 +43,7 @@ public class DragView extends ImageView {
     private int width,height;
 
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         super.onTouchEvent(event);

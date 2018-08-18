@@ -1,12 +1,12 @@
 package com.dekel.pit;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -25,8 +25,11 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    @SuppressLint("StaticFieldLeak")
     private static DragViewGroup dragViewGroup;
+    //keep arrows list
     private  static ArrayList<DashArrow> dashArrowArrayList = new ArrayList<DashArrow>();
+    @SuppressLint("StaticFieldLeak")
     private static Context context;
     private static String cmd = "abcdefghijklmnopqrstuvwxyz";
     private  static int MaxPoint=cmd.length();
@@ -36,26 +39,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Logger.addLogAdapter(new AndroidLogAdapter());
         setContentView(R.layout.activity_main);
+        //hide action status
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.hide();
         }
         context = MainActivity.this;
+        //declaration
         dragViewGroup = findViewById(R.id.dragViewGroup);
-        final ImageView circle = findViewById(R.id.ivCircle);
+        final ImageView ivPlay = findViewById(R.id.ivPlay);
         final ImageView ivAddCircle = findViewById(R.id.ivAddCircle);
         final ImageView btnClear = findViewById(R.id.btnClear);
-
-        circle.setOnClickListener(new View.OnClickListener() {
+        //user click play icon
+        ivPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                circle.setVisibility(View.INVISIBLE);
+                ivPlay.setVisibility(View.INVISIBLE);
                 btnClear.setVisibility(View.VISIBLE);
                 ivAddCircle.setVisibility(View.VISIBLE);
                 for (int i = 0; i < 5; i++) {
                     createView(view, R.drawable.circle, i,true);
-
                 }
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -65,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 }, 5);
             }
         });
-
+        //user click circle icon
         ivAddCircle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,33 +81,35 @@ public class MainActivity extends AppCompatActivity {
                 }, 5);
             }
         });
-
+        //user click garbage can icon
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                circle.setVisibility(View.VISIBLE);
+                ivPlay.setVisibility(View.VISIBLE);
                 btnClear.setVisibility(View.INVISIBLE);
                 ivAddCircle.setVisibility(View.INVISIBLE);
                 dragViewGroup.removeAllViews();
                 dragViewGroup.mMoveLayoutList.clear();
             }
         });
-
     }
-
+    //draw arrows
     public static void drawLine() {
-
+    //clean dashArrowArrayList and clean arrow from preview
         for (DashArrow dashArrow : dashArrowArrayList) {
             dragViewGroup.removeView(dashArrow);
         }
         dashArrowArrayList.clear();
+
+    //check Some circles have on display
+
         int size = dragViewGroup.mMoveLayoutList.size();
 
+    //Cant happen because of the five at first
         if (size < 2) {
             showShortToast(context.getResources().getString(R.string.less_than_two));
             return;
         }
-
         char[] chars = cmd.toCharArray();
         DashArrow dashArrow;
         float statusBarHeight = PixTool.getStatusBarHeight(context);
@@ -118,12 +123,13 @@ public class MainActivity extends AppCompatActivity {
                     childAt1.getBottom() - statusBarHeight,
                     childAt2.getLeft() + childAt1.getWidth() / 2, childAt2.getBottom() - statusBarHeight);
             dragViewGroup.addView(dashArrow);
+            //save arrow in dashArrowArrayList
             dashArrowArrayList.add(dashArrow);
         }
     }
     private void createView(View view, int ResId, int num, boolean start) {
+        //check Some circles have on display
         int size = dragViewGroup.mMoveLayoutList.size();
-
         if (size==MaxPoint){
             showShortToast(context.getResources().getString(R.string.cant_add_more_point));
             return;
@@ -133,14 +139,18 @@ public class MainActivity extends AppCompatActivity {
         //DragView
         LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(view.getWidth(), view.getHeight());
         imageView.setLayoutParams(p);
+        //five circles at first
         if (start) {
             dragViewGroup.addDragView(imageView, view.getLeft() + (view.getWidth() * num), view.getTop(), view.getRight(), view.getBottom()
-                    , true, false);
+            , true, false);
         } else {
+        //one circle add
             dragViewGroup.addDragView(imageView, dragViewGroup.getWidth() / 2, view.getTop(),  view.getRight(), view.getBottom() , true, false);
         }
     }
-    private static void showShortToast(CharSequence text) {
+    //make Toast
+    private static void showShortToast(CharSequence text)
+    {
         Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
     }
 }
