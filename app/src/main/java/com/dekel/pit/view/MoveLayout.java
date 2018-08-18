@@ -114,13 +114,11 @@ public class MoveLayout extends RelativeLayout {
                 oriRight = getRight();
                 oriTop = getTop();
                 oriBottom = getBottom();
-
                 lastY = (int) event.getRawY();
                 lastX = (int) event.getRawX();
                 dragDirection = getDirection((int) event.getX(), (int) event.getY());
                 break;
             case MotionEvent.ACTION_UP:
-                MainActivity.drawLine();
                 spotL = false;
                 spotT = false;
                 spotR = false;
@@ -129,6 +127,7 @@ public class MoveLayout extends RelativeLayout {
                 mDeleteView.setVisibility(View.INVISIBLE);
                 break;
             case MotionEvent.ACTION_MOVE:
+                MainActivity.drawLine();
                 int tempRawX = (int)event.getRawX();
                 int tempRawY = (int)event.getRawY();
 
