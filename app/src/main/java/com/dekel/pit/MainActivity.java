@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 btnClear.setVisibility(View.VISIBLE);
                 ivAddCircle.setVisibility(View.VISIBLE);
                 for (int i = 0; i < 5; i++) {
-                    createView(view, R.drawable.circle, i,true);
+                    createView(view, R.drawable.point, i,true);
                 }
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         ivAddCircle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createView(view, R.drawable.circle, 0,false);
+                createView(view, R.drawable.point, 0,false);
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {

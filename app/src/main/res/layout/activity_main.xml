@@ -21,21 +21,21 @@
 
             <ImageView
                 android:id="@+id/ivPlay"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:src="@android:drawable/ic_media_play" />
             <ImageView
                 android:id="@+id/ivAddCircle"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20sp"
                 android:visibility="invisible"
-                android:src="@drawable/circle" />
+                android:src="@drawable/point" />
             <ImageView
                 android:id="@+id/btnClear"
-                android:layout_width="50dp"
+                android:layout_width="45dp"
                 android:visibility="invisible"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="20sp"
                 android:src="@android:drawable/ic_menu_delete" />
         </LinearLayout>
